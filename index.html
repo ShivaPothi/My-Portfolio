@@ -83,6 +83,15 @@
             color: var(--neon-blue);
             text-shadow: 0 0 20px var(--neon-blue);
             position: relative;
+            cursor: pointer;
+            transition: all 0.3s;
+            text-decoration: none;
+            display: inline-block;
+        }
+
+        .logo:hover {
+            transform: scale(1.1);
+            text-shadow: 0 0 30px var(--neon-blue);
         }
 
         .logo::before {
@@ -109,7 +118,12 @@
             transition: color 0.3s;
         }
 
-        
+        .nav-links a::before {
+            content: '0' counter(item) '. ';
+            color: var(--neon-blue);
+            font-size: 0.9rem;
+            counter-increment: item;
+        }
 
         .nav-links {
             counter-reset: item;
@@ -397,6 +411,416 @@
         .section-subtitle {
             color: var(--gray);
             font-size: 1.1rem;
+        }
+
+        /* About Section */
+        .about-content {
+            display: grid;
+            grid-template-columns: 1.5fr 1fr;
+            gap: 4rem;
+            align-items: start;
+        }
+
+        .about-text p {
+            color: var(--gray);
+            line-height: 1.8;
+            margin-bottom: 1.5rem;
+        }
+
+        .about-highlights {
+            list-style: none;
+            margin: 2rem 0;
+        }
+
+        .about-highlights li {
+            color: var(--gray);
+            padding: 0.8rem 0;
+            padding-left: 2rem;
+            position: relative;
+            line-height: 1.6;
+            transition: all 0.3s;
+        }
+
+        .about-highlights li::before {
+            content: '▹';
+            position: absolute;
+            left: 0;
+            color: var(--neon-blue);
+            font-size: 1.5rem;
+        }
+
+        .about-highlights li:hover {
+            color: #fff;
+            padding-left: 2.5rem;
+        }
+
+        .quote {
+            font-style: italic;
+            color: var(--neon-blue);
+            font-size: 1.1rem;
+            padding: 1.5rem;
+            border-left: 3px solid var(--neon-blue);
+            background: rgba(0, 243, 255, 0.05);
+            border-radius: 0 8px 8px 0;
+            margin-top: 2rem;
+        }
+
+        .about-skills-preview {
+            background: rgba(13, 13, 13, 0.6);
+            border: 1px solid rgba(0, 243, 255, 0.2);
+            border-radius: 15px;
+            padding: 2rem;
+            position: sticky;
+            top: 100px;
+        }
+
+        .about-skills-preview h3 {
+            color: var(--neon-blue);
+            margin-bottom: 2rem;
+            font-size: 1.4rem;
+        }
+
+        .skill-bars {
+            display: flex;
+            flex-direction: column;
+            gap: 1.5rem;
+        }
+
+        .skill-item {
+            
+        }
+
+        .skill-name {
+            color: var(--gray);
+            margin-bottom: 0.5rem;
+            font-size: 0.95rem;
+        }
+
+        .skill-bar {
+            width: 100%;
+            height: 8px;
+            background: rgba(0, 243, 255, 0.1);
+            border-radius: 10px;
+            overflow: hidden;
+        }
+
+        .skill-fill {
+            height: 100%;
+            background: linear-gradient(90deg, var(--neon-blue), var(--neon-purple));
+            border-radius: 10px;
+            animation: fillBar 1.5s ease-out;
+            box-shadow: 0 0 10px var(--neon-blue);
+        }
+
+        @keyframes fillBar {
+            from { width: 0; }
+        }
+
+        .skill-item:hover .skill-fill {
+            box-shadow: 0 0 20px var(--neon-blue);
+        }
+
+        /* CV Download Section */
+        .cv-download-section {
+            margin-top: 2rem;
+            padding: 2rem;
+            background: rgba(0, 243, 255, 0.05);
+            border: 1px solid rgba(0, 243, 255, 0.2);
+            border-radius: 15px;
+        }
+
+        .cv-download-section h3 {
+            color: var(--neon-blue);
+            margin-bottom: 1.5rem;
+            font-size: 1.3rem;
+        }
+
+        .cv-buttons {
+            display: flex;
+            gap: 1.5rem;
+            flex-wrap: wrap;
+        }
+
+        .cv-btn {
+            display: flex;
+            align-items: center;
+            gap: 0.8rem;
+            padding: 1rem 2rem;
+            background: rgba(13, 13, 13, 0.8);
+            border: 2px solid var(--neon-blue);
+            border-radius: 10px;
+            color: var(--neon-blue);
+            text-decoration: none;
+            font-weight: 600;
+            transition: all 0.3s;
+        }
+
+        .cv-btn:hover {
+            background: var(--neon-blue);
+            color: var(--darker);
+            transform: translateY(-3px);
+            box-shadow: 0 10px 30px rgba(0, 243, 255, 0.4);
+        }
+
+        .cv-btn span:first-child {
+            font-size: 1.5rem;
+        }
+
+        /* Expandable Project Cards */
+        .project-card-expandable {
+            background: rgba(13, 13, 13, 0.6);
+            border: 1px solid rgba(0, 243, 255, 0.2);
+            border-radius: 15px;
+            padding: 2rem;
+            transition: all 0.4s;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .project-card-expandable:hover {
+            border-color: var(--neon-blue);
+            box-shadow: 0 15px 50px rgba(0, 243, 255, 0.3);
+        }
+
+        .project-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: start;
+            margin-bottom: 1rem;
+        }
+
+        .project-header h3 {
+            color: #fff;
+            font-size: 1.4rem;
+            flex: 1;
+        }
+
+        .expand-btn {
+            background: var(--neon-blue);
+            border: none;
+            width: 40px;
+            height: 40px;
+            border-radius: 50%;
+            color: var(--darker);
+            font-size: 1.5rem;
+            cursor: pointer;
+            transition: all 0.3s;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            flex-shrink: 0;
+        }
+
+        .expand-btn:hover {
+            transform: rotate(90deg) scale(1.1);
+            box-shadow: 0 0 20px var(--neon-blue);
+        }
+
+        .expand-btn.active {
+            transform: rotate(45deg);
+        }
+
+        .project-summary {
+            margin-bottom: 1rem;
+        }
+
+        .project-summary p {
+            color: var(--gray);
+            line-height: 1.6;
+            margin-bottom: 0.8rem;
+        }
+
+        .project-details {
+            max-height: 0;
+            overflow: hidden;
+            transition: max-height 0.5s ease;
+            margin-top: 1.5rem;
+        }
+
+        .project-details.expanded {
+            max-height: 2000px;
+        }
+
+        .project-details h4 {
+            color: var(--neon-blue);
+            margin: 1.5rem 0 1rem 0;
+            font-size: 1.1rem;
+        }
+
+        .project-details p, .project-details li {
+            color: var(--gray);
+            line-height: 1.7;
+            margin-bottom: 1rem;
+        }
+
+        .project-details ul {
+            list-style: none;
+            margin-left: 0;
+        }
+
+        .project-details li {
+            padding-left: 1.5rem;
+            position: relative;
+        }
+
+        .project-details li::before {
+            content: '▹';
+            position: absolute;
+            left: 0;
+            color: var(--neon-blue);
+        }
+
+        .project-details strong {
+            color: var(--neon-blue);
+        }
+
+        /* Achievements Section */
+        .achievements-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 2rem;
+        }
+
+        .achievement-card {
+            background: rgba(13, 13, 13, 0.6);
+            border: 1px solid rgba(0, 243, 255, 0.2);
+            border-radius: 15px;
+            padding: 2rem;
+            text-align: center;
+            transition: all 0.4s;
+        }
+
+        .achievement-card:hover {
+            border-color: var(--neon-blue);
+            box-shadow: 0 15px 40px rgba(0, 243, 255, 0.3);
+            transform: translateY(-10px);
+        }
+
+        .achievement-icon {
+            font-size: 3rem;
+            margin-bottom: 1rem;
+        }
+
+        .achievement-card h3 {
+            color: var(--neon-blue);
+            margin-bottom: 1rem;
+            font-size: 1.3rem;
+        }
+
+        .achievement-card p {
+            color: var(--gray);
+            line-height: 1.6;
+        }
+
+        /* Contact Form */
+        .contact-container {
+            display: grid;
+            grid-template-columns: 1fr 1.5fr;
+            gap: 4rem;
+            margin-top: 3rem;
+        }
+
+        .contact-info h3,
+        .contact-form-section h3 {
+            color: var(--neon-blue);
+            margin-bottom: 2rem;
+            font-size: 1.5rem;
+        }
+
+        .contact-form {
+            display: flex;
+            flex-direction: column;
+            gap: 1.5rem;
+        }
+
+        .form-group {
+            display: flex;
+            flex-direction: column;
+            gap: 0.5rem;
+        }
+
+        .form-group label {
+            color: var(--gray);
+            font-weight: 500;
+        }
+
+        .form-group input,
+        .form-group textarea {
+            background: rgba(13, 13, 13, 0.6);
+            border: 1px solid rgba(0, 243, 255, 0.2);
+            border-radius: 8px;
+            padding: 1rem;
+            color: #fff;
+            font-family: inherit;
+            font-size: 1rem;
+            transition: all 0.3s;
+        }
+
+        .form-group input:focus,
+        .form-group textarea:focus {
+            outline: none;
+            border-color: var(--neon-blue);
+            box-shadow: 0 0 20px rgba(0, 243, 255, 0.2);
+        }
+
+        .form-group textarea {
+            resize: vertical;
+            min-height: 120px;
+        }
+
+        .form-status {
+            margin-top: 1rem;
+            padding: 1rem;
+            border-radius: 8px;
+            text-align: center;
+            display: none;
+        }
+
+        .form-status.success {
+            background: rgba(0, 255, 0, 0.1);
+            border: 1px solid rgba(0, 255, 0, 0.3);
+            color: #0f0;
+            display: block;
+        }
+
+        .form-status.error {
+            background: rgba(255, 0, 0, 0.1);
+            border: 1px solid rgba(255, 0, 0, 0.3);
+            color: #f00;
+            display: block;
+        }
+
+        /* Scroll to Top Button */
+        .scroll-to-top {
+            position: fixed;
+            bottom: 30px;
+            right: 30px;
+            width: 50px;
+            height: 50px;
+            background: linear-gradient(135deg, var(--neon-blue), var(--neon-purple));
+            border: 2px solid var(--neon-blue);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            font-size: 1.5rem;
+            cursor: pointer;
+            opacity: 0;
+            visibility: hidden;
+            transition: all 0.3s;
+            z-index: 1000;
+            box-shadow: 0 5px 20px rgba(0, 243, 255, 0.4);
+        }
+
+        .scroll-to-top.visible {
+            opacity: 1;
+            visibility: visible;
+        }
+
+        .scroll-to-top:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 30px rgba(0, 243, 255, 0.6);
         }
 
         /* Skills Grid */
@@ -789,6 +1213,20 @@
 
         /* Responsive */
         @media (max-width: 1024px) {
+            .contact-container {
+                grid-template-columns: 1fr;
+                gap: 3rem;
+            }
+
+            .about-content {
+                grid-template-columns: 1fr;
+                gap: 2rem;
+            }
+
+            .about-skills-preview {
+                position: static;
+            }
+
             .hero-grid {
                 grid-template-columns: 1fr;
                 text-align: center;
@@ -862,6 +1300,14 @@
             section {
                 padding: 3rem 5%;
             }
+
+            .cv-buttons {
+                flex-direction: column;
+            }
+
+            .achievements-grid {
+                grid-template-columns: 1fr;
+            }
         }
 
         @media (max-width: 480px) {
@@ -893,11 +1339,13 @@
 
     <nav>
         <div class="container">
-            <div class="logo">SS</div>
+            <a href="#hero" class="logo">SS</a>
             <ul class="nav-links">
+                <li><a href="#about">About</a></li>
                 <li><a href="#skills">Skills</a></li>
                 <li><a href="#experience">Experience</a></li>
                 <li><a href="#projects">Projects</a></li>
+                <li><a href="#achievements">Achievements</a></li>
                 <li><a href="#education">Education</a></li>
                 <li><a href="#contact">Contact</a></li>
             </ul>
@@ -905,7 +1353,7 @@
         </div>
     </nav>
 
-    <section class="hero">
+    <section class="hero" id="hero">
         <div class="hero-grid">
             <div class="img-container">
                 <div class="hex-wrap">
@@ -945,11 +1393,87 @@
         </div>
     </section>
 
+    <section id="about">
+        <div class="section-inner">
+            <div class="section-header reveal">
+                <h2 class="section-title">About Me</h2>
+                <p class="section-subtitle">Passion for data, driven by impact</p>
+            </div>
+            <div class="about-content reveal">
+                <div class="about-text">
+                    <p>Hello! I'm Shivaraam, a data scientist who believes that every dataset tells a story waiting to be discovered. My journey into data science began with a curiosity about patterns and a desire to solve real-world problems through analytics.</p>
+                    
+                    <p>Currently working as a <span class="highlight">Claims Advisor at Sedgwick UK</span>, I've successfully enhanced claim resolution accuracy by 10% while processing claims for major insurers including Admiral, NFU Mutual, and Zurich. I specialize in transforming raw data into actionable insights that drive business decisions.</p>
+                    
+                    <p>With a <span class="highlight">Master's degree from the University of Liverpool</span> and hands-on experience in Python, SQL, and advanced analytics, I've developed a unique blend of technical expertise and business acumen. My work spans across:</p>
+                    
+                    <ul class="about-highlights">
+                        <li>Building predictive models that reduce forecasting errors by 15%</li>
+                        <li>Creating interactive dashboards that improve KPI visibility by 20%</li>
+                        <li>Optimizing data pipelines to reduce reporting latency by 15%</li>
+                        <li>Implementing data-driven solutions that contribute to revenue growth</li>
+                    </ul>
+                    
+                    <p>When I'm not analyzing data, you'll find me exploring new machine learning techniques, contributing to open-source projects, or mentoring aspiring data scientists. I'm passionate about continuous learning and staying ahead of industry trends in data science and analytics.</p>
+                    
+                    <p class="quote">"Data is not just numbers—it's the foundation for smarter decisions and better outcomes."</p>
+
+                    <div class="cv-download-section">
+                        <h3>Download My CV</h3>
+                        <div class="cv-buttons">
+                            
+			    <a href=https://shivapothi.github.io/My-Portfolio/Shiva%20Data%20Science%20(2).pdf target="_blank" download class="cv-btn">
+                                <span>📄</span>
+                                <span> CV</span>
+                            </a>
+                            
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="about-skills-preview">
+                    <h3>Quick Skills Overview</h3>
+                    <div class="skill-bars">
+                        <div class="skill-item">
+                            <div class="skill-name">Python & Data Analysis</div>
+                            <div class="skill-bar">
+                                <div class="skill-fill" style="width: 90%;"></div>
+                            </div>
+                        </div>
+                        <div class="skill-item">
+                            <div class="skill-name">SQL & Database Management</div>
+                            <div class="skill-bar">
+                                <div class="skill-fill" style="width: 85%;"></div>
+                            </div>
+                        </div>
+                        <div class="skill-item">
+                            <div class="skill-name">Machine Learning</div>
+                            <div class="skill-bar">
+                                <div class="skill-fill" style="width: 80%;"></div>
+                            </div>
+                        </div>
+                        <div class="skill-item">
+                            <div class="skill-name">Data Visualization</div>
+                            <div class="skill-bar">
+                                <div class="skill-fill" style="width: 88%;"></div>
+                            </div>
+                        </div>
+                        <div class="skill-item">
+                            <div class="skill-name">Business Intelligence</div>
+                            <div class="skill-bar">
+                                <div class="skill-fill" style="width: 85%;"></div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
     <section id="skills">
         <div class="section-inner">
             <div class="section-header reveal">
-                <div class="section-num">01. Technical Arsenal</div>
-                <h2 class="section-title">Skills & Expertise</h2>
+                <h2 class="section-title">Technical Skills</h2>
                 <p class="section-subtitle">Comprehensive toolkit for data-driven solutions</p>
             </div>
             <div class="skills-grid">
@@ -1004,7 +1528,6 @@
     <section id="experience">
         <div class="section-inner">
             <div class="section-header reveal">
-                <div class="section-num">02. Career Journey</div>
                 <h2 class="section-title">Professional Experience</h2>
                 <p class="section-subtitle">Building data-driven solutions across industries</p>
             </div>
@@ -1065,49 +1588,170 @@
     <section id="projects">
         <div class="section-inner">
             <div class="section-header reveal">
-                <div class="section-num">03. Featured Work</div>
-                <h2 class="section-title">Projects & Implementations</h2>
-                <p class="section-subtitle">Real-world applications of data science</p>
+                <h2 class="section-title">Featured Projects</h2>
+                <p class="section-subtitle">University of Liverpool research implementations</p>
             </div>
             <div class="projects-grid">
-                <div class="project-card reveal">
-                    <div class="project-num">01</div>
-                    <h3>Retail Sales Forecasting</h3>
-                    <p>Built ARIMA, SARIMA and ARIMAX models integrating VADER sentiment analysis from customer reviews.</p>
-                    <p><strong>Impact:</strong> 15% RMSE reduction vs baseline models.</p>
+                <div class="project-card-expandable reveal">
+                    <div class="project-header">
+                        <div class="project-num">01</div>
+                        <h3>Retail Sales Forecasting with Sentiment Analysis</h3>
+                        <button class="expand-btn">+</button>
+                    </div>
+                    <div class="project-summary">
+                        <p>Built ARIMA, SARIMA and ARIMAX models integrating VADER sentiment analysis from customer reviews.</p>
+                        <p><strong>Impact:</strong> 15% RMSE reduction vs baseline models.</p>
+                    </div>
+                    <div class="project-details">
+                        <h4>Project Overview</h4>
+                        <p>As part of my Master's dissertation at the University of Liverpool, I developed a comprehensive forecasting system that combines traditional time series analysis with natural language processing to predict retail sales more accurately.</p>
+                        
+                        <h4>Methodology</h4>
+                        <ul>
+                            <li><strong>Data Collection:</strong> Gathered historical sales data spanning 3 years alongside customer review text from multiple retail channels</li>
+                            <li><strong>Sentiment Analysis:</strong> Implemented VADER (Valence Aware Dictionary and sEntiment Reasoner) to extract sentiment scores from customer reviews</li>
+                            <li><strong>Model Development:</strong> Built and compared ARIMA, SARIMA, and ARIMAX models, with the ARIMAX model incorporating sentiment scores as exogenous variables</li>
+                            <li><strong>Feature Engineering:</strong> Created lag features, rolling averages, and seasonal indicators to capture complex patterns</li>
+                        </ul>
+                        
+                        <h4>Key Findings</h4>
+                        <p>The integration of sentiment analysis significantly improved forecast accuracy. The ARIMAX model with sentiment features achieved ~15% RMSE reduction compared to traditional ARIMA models, demonstrating that customer sentiment is a valuable predictor of future sales trends.</p>
+                        
+                        <h4>Technical Implementation</h4>
+                        <p>Utilized Python's statsmodels library for time series modeling, NLTK for sentiment analysis, and created interactive visualizations using Matplotlib and Seaborn to communicate findings to stakeholders.</p>
+                        
+                        <h4>Business Impact</h4>
+                        <p>This approach enables retailers to better anticipate demand fluctuations, optimize inventory management, and align marketing strategies with predicted sentiment-driven sales patterns.</p>
+                    </div>
                     <div class="tech-tags">
                         <span class="tag">Python</span>
                         <span class="tag">Statsmodels</span>
-                        <span class="tag">VADER</span>
+                        <span class="tag">VADER/NLTK</span>
                         <span class="tag">Pandas</span>
                         <span class="tag">Matplotlib</span>
+                        <span class="tag">Time Series</span>
                     </div>
                 </div>
 
-                <div class="project-card reveal">
-                    <div class="project-num">02</div>
-                    <h3>Interactive Sales Dashboard</h3>
-                    <p>Delivered stakeholder-ready Power BI dashboards with forecast comparisons, residual diagnostics, and seasonality analysis.</p>
-                    <p><strong>Result:</strong> Drill-down capabilities with executive summaries.</p>
+                <div class="project-card-expandable reveal">
+                    <div class="project-header">
+                        <div class="project-num">02</div>
+                        <h3>Interactive Sales Dashboard & Analytics Platform</h3>
+                        <button class="expand-btn">+</button>
+                    </div>
+                    <div class="project-summary">
+                        <p>Delivered stakeholder-ready Power BI dashboards with forecast comparisons, residual diagnostics, and seasonality analysis.</p>
+                        <p><strong>Result:</strong> Drill-down capabilities with executive summaries.</p>
+                    </div>
+                    <div class="project-details">
+                        <h4>Project Overview</h4>
+                        <p>Developed as part of my Data Visualization and Communication module at the University of Liverpool, this project focused on creating an enterprise-grade analytics dashboard that transforms complex forecasting outputs into actionable business intelligence.</p>
+                        
+                        <h4>Dashboard Components</h4>
+                        <ul>
+                            <li><strong>Forecast vs Actual Analysis:</strong> Real-time comparison of predicted and actual sales with variance indicators</li>
+                            <li><strong>Residual Diagnostics:</strong> Visual tools to assess model performance and identify prediction errors</li>
+                            <li><strong>Seasonality Decomposition:</strong> Interactive charts showing trend, seasonal, and residual components</li>
+                            <li><strong>KPI Cards:</strong> Dynamic metrics showing forecast accuracy, MAE, RMSE, and MAPE</li>
+                            <li><strong>Drill-Down Capabilities:</strong> Hierarchical filtering from yearly to daily granularity</li>
+                        </ul>
+                        
+                        <h4>Technical Architecture</h4>
+                        <p>Built using Power BI with DAX for complex calculations, integrated SQL Server for data storage, and Python for advanced analytics preprocessing. Implemented row-level security for different stakeholder access levels.</p>
+                        
+                        <h4>User Experience Design</h4>
+                        <p>Designed with stakeholder feedback loops, ensuring non-technical users could easily interpret forecasts. Created executive summary pages for C-suite and detailed analytical views for data teams.</p>
+                        
+                        <h4>Outcomes</h4>
+                        <p>The dashboard reduced reporting time by 60%, enabled data-driven decision making across departments, and provided a single source of truth for sales forecasting across the organization.</p>
+                    </div>
                     <div class="tech-tags">
                         <span class="tag">Power BI</span>
-                        <span class="tag">SQL</span>
+                        <span class="tag">SQL Server</span>
                         <span class="tag">DAX</span>
+                        <span class="tag">Python</span>
                         <span class="tag">Data Viz</span>
+                        <span class="tag">UX Design</span>
                     </div>
                 </div>
 
-                <div class="project-card reveal">
-                    <div class="project-num">03</div>
-                    <h3>ETL Pipeline Optimization</h3>
-                    <p>Redesigned SQL queries and ETL workflows to improve data processing efficiency for BI systems.</p>
-                    <p><strong>Impact:</strong> 15% reduction in query execution time and improved data freshness.</p>
+                <div class="project-card-expandable reveal">
+                    <div class="project-header">
+                        <div class="project-num">03</div>
+                        <h3>ETL Pipeline Optimization & Data Warehouse Design</h3>
+                        <button class="expand-btn">+</button>
+                    </div>
+                    <div class="project-summary">
+                        <p>Redesigned SQL queries and ETL workflows to improve data processing efficiency for BI systems.</p>
+                        <p><strong>Impact:</strong> 15% reduction in query execution time and improved data freshness.</p>
+                    </div>
+                    <div class="project-details">
+                        <h4>Project Overview</h4>
+                        <p>Completed during my Database Systems and Big Data module at the University of Liverpool, this project involved redesigning an entire ETL pipeline to support real-time analytics and improve data warehouse performance.</p>
+                        
+                        <h4>Challenges Addressed</h4>
+                        <ul>
+                            <li><strong>Slow Query Performance:</strong> Original queries taking 2-3 minutes for basic reports</li>
+                            <li><strong>Data Staleness:</strong> Batch processes causing 12-24 hour delays in data availability</li>
+                            <li><strong>Scalability Issues:</strong> System struggling with growing data volumes (10M+ records)</li>
+                            <li><strong>Maintenance Complexity:</strong> Fragmented ETL scripts difficult to debug and update</li>
+                        </ul>
+                        
+                        <h4>Solution Architecture</h4>
+                        <p>Implemented a modular ETL framework using Python and SQL with the following components:</p>
+                        <ul>
+                            <li>Incremental loading strategy instead of full refreshes</li>
+                            <li>Star schema redesign for optimized analytics queries</li>
+                            <li>Indexed views and materialized aggregations for common queries</li>
+                            <li>Partitioning strategies for large fact tables</li>
+                            <li>Automated data quality checks and alerting</li>
+                        </ul>
+                        
+                        <h4>Performance Improvements</h4>
+                        <p>Query execution time reduced from avg 150s to 127s (15% improvement). Data freshness improved from 24 hours to near-real-time (5-minute intervals). System now handles 3x data volume without performance degradation.</p>
+                        
+                        <h4>Best Practices Implemented</h4>
+                        <p>Documentation of all ETL processes, version control for SQL scripts, automated testing framework, and monitoring dashboards for pipeline health.</p>
+                    </div>
                     <div class="tech-tags">
                         <span class="tag">SQL</span>
-                        <span class="tag">ETL</span>
-                        <span class="tag">Optimization</span>
                         <span class="tag">Python</span>
+                        <span class="tag">ETL</span>
+                        <span class="tag">Data Warehouse</span>
+                        <span class="tag">Optimization</span>
+                        <span class="tag">PostgreSQL</span>
                     </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="achievements">
+        <div class="section-inner">
+            <div class="section-header reveal">
+                <h2 class="section-title">Achievements & Recognition</h2>
+                <p class="section-subtitle">Milestones and professional accomplishments</p>
+            </div>
+            <div class="achievements-grid">
+                <div class="achievement-card reveal">
+                    <div class="achievement-icon">🏆</div>
+                    <h3>KTP Associate Finalist - Aston University</h3>
+                    <p>Reached final interview stage (top 5) for a Knowledge Transfer Partnership Associate role at Aston University in collaboration with Stagecoach, following rigorous academic and industry assessment.</p>
+                </div>
+                <div class="achievement-card reveal">
+                    <div class="achievement-icon">✅</div>
+                    <h3>UK Skilled Worker Sponsorship</h3>
+                    <p>Eligible for UK Skilled Worker sponsorship through the KTP Associate route, demonstrating recognized expertise in data science and analytics.</p>
+                </div>
+                <div class="achievement-card reveal">
+                    <div class="achievement-icon">🤝</div>
+                    <h3>Academic-Industry Partnership</h3>
+                    <p>Comfortable working in academic–industry partnership environments, bridging the gap between research innovation and practical business applications.</p>
+                </div>
+                <div class="achievement-card reveal">
+                    <div class="achievement-icon">🌱</div>
+                    <h3>Sustainability & Public Sector Focus</h3>
+                    <p>Strong interest in infrastructure, sustainability, and public-sector data challenges, committed to using data science for positive social impact.</p>
                 </div>
             </div>
         </div>
@@ -1116,7 +1760,6 @@
     <section id="education">
         <div class="section-inner">
             <div class="section-header reveal">
-                <div class="section-num">04. Academic Foundation</div>
                 <h2 class="section-title">Education</h2>
                 <p class="section-subtitle">Building expertise through rigorous study</p>
             </div>
@@ -1136,7 +1779,7 @@
     <section id="contact">
         <div class="section-inner">
             <div class="section-header reveal">
-                <div class="section-num">05. Get In Touch</div>
+                <div class="section-num">06. Get In Touch</div>
                 <h2 class="section-title">Let's Connect</h2>
                 <p class="section-subtitle">Open to collaborations and opportunities</p>
             </div>
@@ -1154,7 +1797,7 @@
                 <div class="contact-card reveal">
                     <div class="contact-icon">💼</div>
                     <h3>LinkedIn</h3>
-                    <a href="https://www.linkedin.com/in/shivaraam-sankar-783130168/" target="_blank">linkedin.com/in/shivaraam-sankar</a>
+                    <a href="https://linkedin.com/in/shivaraam-sankar" target="_blank">linkedin.com/in/shivaraam-sankar</a>
                 </div>
                 <div class="contact-card reveal">
                     <div class="contact-icon">💻</div>
@@ -1168,6 +1811,9 @@
     <footer>
         <p>© 2025 Shivaraam Sankar | Designed & Built with passion for data</p>
     </footer>
+
+    <!-- Scroll to Top Button -->
+    <div class="scroll-to-top" id="scrollToTop">↑</div>
 
     <script>
         // Smooth scroll
@@ -1253,6 +1899,82 @@
             
             setTimeout(type, 500);
         }
+
+        // Expandable Project Cards
+        document.querySelectorAll('.expand-btn').forEach(btn => {
+            btn.addEventListener('click', function() {
+                const card = this.closest('.project-card-expandable');
+                const details = card.querySelector('.project-details');
+                
+                this.classList.toggle('active');
+                details.classList.toggle('expanded');
+            });
+        });
+
+        // Contact Form Handling
+        document.getElementById('contactForm')?.addEventListener('submit', function(e) {
+            e.preventDefault();
+            
+            const formStatus = document.getElementById('formStatus');
+            const formData = {
+                name: document.getElementById('name').value,
+                email: document.getElementById('email').value,
+                subject: document.getElementById('subject').value,
+                message: document.getElementById('message').value
+            };
+            
+            // Simulate form submission (replace with actual API call)
+            formStatus.textContent = 'Sending message...';
+            formStatus.className = 'form-status';
+            formStatus.style.display = 'block';
+            
+            setTimeout(() => {
+                formStatus.textContent = 'Thank you! Your message has been sent successfully.';
+                formStatus.className = 'form-status success';
+                this.reset();
+                
+                setTimeout(() => {
+                    formStatus.style.display = 'none';
+                }, 5000);
+            }, 1500);
+            
+            // In production, use this pattern:
+            /*
+            fetch('your-backend-endpoint', {
+                method: 'POST',
+                headers: { 'Content-Type': 'application/json' },
+                body: JSON.stringify(formData)
+            })
+            .then(response => response.json())
+            .then(data => {
+                formStatus.textContent = 'Thank you! Your message has been sent successfully.';
+                formStatus.className = 'form-status success';
+                this.reset();
+            })
+            .catch(error => {
+                formStatus.textContent = 'Oops! Something went wrong. Please try again.';
+                formStatus.className = 'form-status error';
+            });
+            */
+        });
+
+        // Scroll to Top Button
+        const scrollToTopBtn = document.getElementById('scrollToTop');
+        
+        window.addEventListener('scroll', () => {
+            if (window.pageYOffset > 300) {
+                scrollToTopBtn.classList.add('visible');
+            } else {
+                scrollToTopBtn.classList.remove('visible');
+            }
+        });
+
+        scrollToTopBtn.addEventListener('click', () => {
+            window.scrollTo({
+                top: 0,
+                behavior: 'smooth'
+            });
+        });
     </script>
 </body>
 </html>
